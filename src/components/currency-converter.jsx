@@ -1,5 +1,8 @@
-
+import { useState } from "react"
 const CurrencyConverter = () => {
+       const[ currencies,setCurrencies] = useState([])
+       const [amount, setAmount] = useState(1)
+
        
   return (
     <div className='max-w-xl mx-auto my-10 p-5 bg-white rounded-lg shadow-md'>
@@ -8,7 +11,9 @@ const CurrencyConverter = () => {
         <div className='mt-4 '>
             <label htmlFor="amount"
             className='block text-sm font-medium text-gray-700'>Amount:</label>
-            <input type="number"
+            <input value={amount}
+            onChange={(e)=>setAmount(e.target.value)}
+            type="number"
              className='w-full p-2 border border-green-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 mt-1'/>
         </div>
         <div className='flex justify-end mt-6' >
